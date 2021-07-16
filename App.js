@@ -1,17 +1,12 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, StyleSheet} from 'react-native';
-import Main from "./components/main/Main";
-import Header from "./components/header/Header";
+import {SafeAreaView, StyleSheet} from 'react-native';
+import Navigation from "./components/navigation/Navigation";
 
 
 export default function App() {
     return (
         <SafeAreaView style={styles.container}>
-            <ScrollView>
-                <Header/>
-                <Main/>
-            </ScrollView>
-
+            <Navigation/>
         </SafeAreaView>
     );
 }
@@ -19,7 +14,7 @@ export default function App() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#ffff',
         flexDirection: 'column',
     },
 });

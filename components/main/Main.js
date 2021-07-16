@@ -1,14 +1,16 @@
 import React, {useState} from 'react';
-import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {Image, SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
 import Buttons from "./Buttons";
 import Products from "./Products";
 import img2 from "../../assets/image/img2.png"
 import img3 from "../../assets/image/img3.png"
 import img4 from "../../assets/image/img4.png"
 import StartFrame from "./StartFrame";
+import Header from "../header/Header";
+import Footer from "../footer/Footer";
 
 
-export default function Main() {
+export default function Main({navigation}) {
     const [products, setProducts] = useState([
         {
             id: '1',
@@ -47,6 +49,10 @@ export default function Main() {
         setFilterText(text)
     }
 
+    const loadScene = (value) => {
+        navigation.navigate(value)
+    }
+
     if (filter === 'all') {
         productsFilter = [...products]
 
@@ -68,16 +74,19 @@ export default function Main() {
     }
 
     return (
-        <SafeAreaView style={styles.container}>
+        <ScrollView style={styles.container}>
+            <Header/>
             <StartFrame/>
             <Buttons filter={filter} changeFilter={changeFilter}/>
             <Products text={filterText} products={productsFilter}/>
-        </SafeAreaView>
+            <Footer loadScene={loadScene}/>
+        </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         padding: 15,
+        backgroundColor: '#fff'
     }
 });
