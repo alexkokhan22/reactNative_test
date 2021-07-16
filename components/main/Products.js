@@ -3,11 +3,11 @@ import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {AntDesign} from '@expo/vector-icons';
 
 
-export default function Products({products}) {
+export default function Products({text, products}) {
     return (
-        <View>
-            <View>
-                <Text>All Quadcopters</Text>
+        <View style={styles.productBox}>
+            <View style={styles.filterText}>
+                <Text>{text}</Text>
             </View>
 
             <View style={styles.containerProducts}>
@@ -21,7 +21,7 @@ export default function Products({products}) {
                                 <Text style={styles.text}>{pr.title}</Text>
                                 <View style={styles.boxPrice}>
                                     <View>
-                                        <Text style={styles.textPrice}>{pr.price}</Text>
+                                        <Text style={styles.textPrice}>{pr.price} $</Text>
                                     </View>
                                     <View style={styles.boxRating}>
                                         <View style={styles.boxStar}>
@@ -43,6 +43,14 @@ export default function Products({products}) {
 }
 
 const styles = StyleSheet.create({
+    filterText: {
+        color: '#1F1F1F',
+        fontSize: 20,
+        lineHeight: 24
+    },
+    productBox: {
+        padding: 15
+    },
     containerProducts: {
         backgroundColor: '#fff',
         flexDirection: 'row',
@@ -76,9 +84,11 @@ const styles = StyleSheet.create({
         padding: 4,
     },
     boxStar: {
-        marginRight: 5
+        marginRight: 5,
+
     },
     text: {
+        marginTop: 2,
         color: '#1F1F1F',
         fontSize: 14,
         lineHeight: 17
