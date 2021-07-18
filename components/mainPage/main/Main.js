@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
-import {Image, SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
-import Buttons from "./Buttons";
-import Products from "./Products";
-import img2 from "../../assets/image/img2.png"
-import img3 from "../../assets/image/img3.png"
-import img4 from "../../assets/image/img4.png"
-import StartFrame from "./StartFrame";
-import Header from "../header/Header";
-import Footer from "../footer/Footer";
+import {ScrollView, StyleSheet} from 'react-native';
+import Buttons from './Buttons';
+import Products from './Products';
+import img2 from '../../../assets/image/img2.png'
+import img3 from '../../../assets/image/img3.png'
+import img4 from '../../../assets/image/img4.png'
+import StartFrame from './StartFrame';
+import Header from '../header/Header';
+import Footer from '../footer/Footer';
 
 
 export default function Main({navigation}) {
@@ -15,6 +15,7 @@ export default function Main({navigation}) {
         {
             id: '1',
             title: 'DJI Air 2s',
+            pageName: 'djiAirPage',
             image: img2,
             price: 1424,
             rating: 4.2,
@@ -24,6 +25,7 @@ export default function Main({navigation}) {
         {
             id: '2',
             title: 'DJI Mavic Mini',
+            pageName: 'djiMavicPage',
             image: img3,
             price: 990.90,
             rating: 4.5,
@@ -33,6 +35,7 @@ export default function Main({navigation}) {
         {
             id: '3',
             title: 'DJI’s Matrice 200',
+            pageName: 'dijMatricePage',
             image: img4,
             price: 2780.30,
             rating: 3.8,
@@ -55,7 +58,6 @@ export default function Main({navigation}) {
 
     if (filter === 'all') {
         productsFilter = [...products]
-
     }
     if (filter === 'best') {
         productsFilter = products.filter(pr => pr.rating >= 4)
@@ -67,10 +69,10 @@ export default function Main({navigation}) {
         productsFilter = [productsCheap]
     }
     if (filter === 'fast') {
-        let productsCheap = products.reduce((acc, el) => {
+        let productsFast = products.reduce((acc, el) => {
             return acc.speed > el.speed ? acc : el
         })
-        productsFilter = [productsCheap]
+        productsFilter = [productsFast]
     }
 
     return (
@@ -78,7 +80,7 @@ export default function Main({navigation}) {
             <Header/>
             <StartFrame/>
             <Buttons filter={filter} changeFilter={changeFilter}/>
-            <Products text={filterText} products={productsFilter}/>
+            <Products text={filterText} products={productsFilter} loadScene={loadScene}/>
             <Footer loadScene={loadScene}/>
         </ScrollView>
     );
@@ -87,6 +89,6 @@ export default function Main({navigation}) {
 const styles = StyleSheet.create({
     container: {
         padding: 15,
-        backgroundColor: '#fff'
+        backgroundColor: '#ffff'
     }
 });

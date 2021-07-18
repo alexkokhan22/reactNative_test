@@ -3,17 +3,17 @@ import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {AntDesign} from '@expo/vector-icons';
 
 
-export default function Products({text, products}) {
+export default function Products({text, products, loadScene}) {
     return (
         <View style={styles.productBox}>
-            <View style={styles.filterText}>
-                <Text>{text}</Text>
+            <View>
+                <Text style={styles.filterText}>{text}</Text>
             </View>
 
             <View style={styles.containerProducts}>
                 {products.map(pr => {
                     return (
-                        <TouchableOpacity style={styles.boxProducts} key={pr.id}>
+                        <TouchableOpacity onPress={() => loadScene(pr.pageName)} style={styles.boxProducts} key={pr.id}>
                             <View>
                                 <Image style={styles.img} source={pr.image}/>
                             </View>
@@ -46,7 +46,8 @@ const styles = StyleSheet.create({
     filterText: {
         color: '#1F1F1F',
         fontSize: 20,
-        lineHeight: 24
+        lineHeight: 24,
+        fontFamily: 'LatoRegular'
     },
     productBox: {
         padding: 15
@@ -61,8 +62,8 @@ const styles = StyleSheet.create({
         width: 204,
         height: 248,
         borderRadius: 12,
-        backgroundColor: '#fff',
-        borderWidth: 2,
+        backgroundColor: '#ffff',
+        borderWidth: 1,
         borderColor: '#E7E7E7',
         marginTop: 10
     },
@@ -85,17 +86,18 @@ const styles = StyleSheet.create({
     },
     boxStar: {
         marginRight: 5,
-
     },
     text: {
         marginTop: 2,
         color: '#1F1F1F',
         fontSize: 14,
-        lineHeight: 17
+        lineHeight: 17,
+        fontFamily: 'LatoRegular'
     },
     textPrice: {
         color: '#1F1F1F',
         fontSize: 16,
-        lineHeight: 22
+        lineHeight: 22,
+        fontFamily: 'LatoRegular'
     }
 });

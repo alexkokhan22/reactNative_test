@@ -6,7 +6,7 @@ export default function Header() {
     return (
         <SafeAreaView style={styles.container}>
             <Text style={styles.text}>Quadrojoy</Text>
-            <Ionicons style={styles.icon} name="md-menu-outline" size={32} color="#1F1F1F"/>
+            <Ionicons style={styles.icon} name='md-menu-outline' size={32} color='#1F1F1F'/>
         </SafeAreaView>
     );
 }
@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     text: {
         color: '#1F1F1F',
         fontSize: 24,
+        fontFamily: 'LatoBold',
         lineHeight: 32
     },
     icon: {

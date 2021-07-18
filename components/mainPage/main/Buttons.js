@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     },
     buttonActive: {
         backgroundColor: '#317AE8',
-        borderRadius: 5,
+        borderRadius: 12,
         width: 78,
         height: 46,
         justifyContent: 'center',
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     },
     button: {
         backgroundColor: '#ffff',
-        borderRadius: 5,
+        borderRadius: 12,
         width: 78,
         height: 46,
         justifyContent: 'center',
@@ -63,9 +63,11 @@ const styles = StyleSheet.create({
         borderColor: '#E7E7E7',
     },
     textActive: {
-        color: '#fff'
+        color: '#fff',
+        fontFamily: 'LatoRegular'
     },
     text: {
-        color: '#000'
+        color: '#000',
+        fontFamily: 'LatoRegular'
     }
 });
