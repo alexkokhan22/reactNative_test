@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "my-app",
-    "slug": "my-app",
+    "name": "react-native-test-app",
+    "slug": "react-native-test-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "splash": {
@@ -22,8 +22,8 @@
         "backgroundColor": "#FFFFFF"
       }
     },
-    "web": {
-
-    }
+    "web": {},
+    "description": "",
+    "githubUrl": "https://github.com/alexkokhan22/reactNative_test"
   }
 }

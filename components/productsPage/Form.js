@@ -1,9 +1,6 @@
 import React from 'react';
-import {Button, SafeAreaView, StyleSheet, TextInput, View} from 'react-native';
+import {Platform, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {Formik} from 'formik';
-
-
-
 
 
 export default function Form({setModalWindow}) {
@@ -17,21 +14,29 @@ export default function Form({setModalWindow}) {
                 initialValues={{name: '', phone: ''}}>
                 {(props) => {
                     return <View>
-                        <TextInput
-                            style={styles.input}
-                            value={props.values.name}
-                            placeholder={'Имя'}
-                            onChange={props.handleChange('name')}
-                        />
-                        <TextInput
-                            style={styles.input}
-                            keyboardType={'phone-pad'}
-                            value={props.values.phone}
-                            placeholder={'Номер телефона'}
-                            onChange={props.handleChange('phone')}
-                        />
                         <View>
-                            <Button  title={'Заказать'} onPress={props.handleSubmit}/>
+                            <TextInput
+                                style={styles.input}
+                                value={props.values.name}
+                                placeholder={'Имя'}
+                                onChange={props.handleChange('name')}
+                            />
+                        </View>
+
+                        <View behavior={Platform.OS === "ios" ? "padding" : "height"}>
+                            <TextInput
+                                style={styles.input}
+                                keyboardType={'phone-pad'}
+                                value={props.values.phone}
+                                placeholder={'Номер телефона'}
+                                onChange={props.handleChange('phone')}
+                            />
+                        </View>
+
+                        <View style={styles.buttonContainer}>
+                            <TouchableOpacity style={styles.button} onPress={props.handleSubmit}>
+                                <Text style={styles.textButton}>Заказать</Text>
+                            </TouchableOpacity>
                         </View>
                     </View>
                 }}
@@ -51,19 +56,22 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderColor: '#E7E7E7'
     },
-    modalTrue: {
-        padding: 5,
-        backgroundColor: 'rgba(0,0,0,0.5)'
-    },
-
-    modalWindow: {
-        position: 'absolute',
-        top: 200,
-        left: 30,
-        backgroundColor: '#ffff',
+    buttonContainer: {
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
+    },
+    button: {
+        backgroundColor: '#317AE8',
         width: 343,
-        height: 248
+        height: 46,
+        borderRadius: 8,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    textButton: {
+        color: '#fff',
+        fontSize: 16,
+        lineHeight: 22,
+        fontFamily: 'LatoRegular'
     }
 });

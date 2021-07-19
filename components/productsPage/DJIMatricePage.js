@@ -2,26 +2,29 @@ import React, {useState} from 'react';
 import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 import Form from './Form';
 import ModalWindow from './ModalWindow';
+import {KeyboardAwareScrollView} from "react-native-keyboard-aware-scroll-view";
 
 
 export default function DJIMatricePage() {
     const [modalWindow, setModalWindow] = useState(false)
     return (
         <ScrollView style={styles.container}>
-            <ModalWindow modalWindow={modalWindow} setModalWindow={setModalWindow}/>
-            <View style={styles.boxImage}>
-                <Image style={styles.img} source={require('../../assets/image/img4.png')}/>
-            </View>
-            <View style={styles.boxText}>
-                <Text style={styles.text}>Ordinary quadcopter</Text>
-                <Text style={styles.textName}>DJI’s Matrice 200</Text>
-                <Text style={styles.textPrice}>2780.30 $</Text>
-                <Text style={styles.textDescription}>
-                    The Mavic 2 offers iconic Hasselblad image quality on Pro
-                    and a high-performance zoom lens on Zoom.
-                </Text>
-            </View>
-            <Form setModalWindow={setModalWindow}/>
+            <KeyboardAwareScrollView>
+                <ModalWindow modalWindow={modalWindow} setModalWindow={setModalWindow}/>
+                <View style={styles.boxImage}>
+                    <Image style={styles.img} source={require('../../assets/image/img4.png')}/>
+                </View>
+                <View style={styles.boxText}>
+                    <Text style={styles.text}>Ordinary quadcopter</Text>
+                    <Text style={styles.textName}>DJI’s Matrice 200</Text>
+                    <Text style={styles.textPrice}>2780.30 $</Text>
+                    <Text style={styles.textDescription}>
+                        The Mavic 2 offers iconic Hasselblad image quality on Pro
+                        and a high-performance zoom lens on Zoom.
+                    </Text>
+                </View>
+                <Form setModalWindow={setModalWindow}/>
+            </KeyboardAwareScrollView>
         </ScrollView>
     );
 }
@@ -48,25 +51,29 @@ const styles = StyleSheet.create({
         color: '#1F1F1F',
         fontSize: 16,
         lineHeight: 22,
-        marginBottom: 5
+        marginBottom: 5,
+        fontFamily: 'LatoRegular'
     },
     textName: {
         color: '#1F1F1F',
         fontSize: 28,
         lineHeight: 36,
-        marginBottom: 10
+        marginBottom: 10,
+        fontFamily: 'LatoBold'
     },
     textPrice: {
         color: '#317AE8',
         fontSize: 20,
         lineHeight: 24,
-        marginBottom: 10
+        marginBottom: 10,
+        fontFamily: 'LatoRegular'
     },
     textDescription: {
         color: '#939399',
         fontSize: 16,
         lineHeight: 22,
-        marginBottom: 10
+        marginBottom: 10,
+        fontFamily: 'LatoRegular'
     },
 
 
