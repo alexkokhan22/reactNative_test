@@ -28,7 +28,7 @@ export default function Products({text, products, loadScene}) {
                                             <AntDesign name="star" size={18} color="gold"/>
                                         </View>
                                         <View>
-                                            <Text style={styles.text}>{pr.rating}</Text>
+                                            <Text style={styles.textRating}>{pr.rating}</Text>
                                         </View>
                                     </View>
                                 </View>
@@ -44,10 +44,12 @@ export default function Products({text, products, loadScene}) {
 
 const styles = StyleSheet.create({
     filterText: {
+        marginTop: 12,
+        marginBottom: 10,
         color: '#1F1F1F',
         fontSize: 20,
         lineHeight: 24,
-        fontFamily: 'LatoRegular'
+        fontFamily: 'LatoBold',
     },
     productBox: {
         padding: 15
@@ -92,12 +94,18 @@ const styles = StyleSheet.create({
         color: '#1F1F1F',
         fontSize: 14,
         lineHeight: 17,
-        fontFamily: 'LatoRegular'
+        fontFamily: 'LatoBold',
     },
     textPrice: {
         color: '#1F1F1F',
         fontSize: 16,
         lineHeight: 22,
-        fontFamily: 'LatoRegular'
+        fontFamily: 'LatoBold',
+    },
+    textRating: {
+        color: '#1F1F1F',
+        fontSize: 16,
+        lineHeight: 22,
+        fontFamily: 'LatoBold'
     }
 });

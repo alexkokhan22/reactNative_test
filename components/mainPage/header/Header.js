@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
         color: '#1F1F1F',
         fontSize: 24,
         fontFamily: 'LatoBold',
-        lineHeight: 32
+        lineHeight: 32,
+
     },
     icon: {
         color: '#1F1F1F',

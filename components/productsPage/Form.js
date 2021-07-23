@@ -1,5 +1,5 @@
 import React from 'react';
-import {Platform, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {Formik} from 'formik';
 
 
@@ -23,12 +23,13 @@ export default function Form({setModalWindow}) {
                             />
                         </View>
 
-                        <View behavior={Platform.OS === "ios" ? "padding" : "height"}>
+                        <View>
                             <TextInput
                                 style={styles.input}
                                 keyboardType={'phone-pad'}
                                 value={props.values.phone}
-                                placeholder={'Номер телефона'}
+                                placeholder={'+375 (__)___-__-__ '}
+                                placeholderTextColor={'black'}
                                 onChange={props.handleChange('phone')}
                             />
                         </View>
@@ -61,6 +62,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     button: {
+        marginTop: 10,
         backgroundColor: '#317AE8',
         width: 343,
         height: 46,

@@ -31,20 +31,21 @@ const styles = StyleSheet.create({
     firstText: {
         fontSize: 14,
         lineHeight: 17,
-        fontFamily: 'LatoRegular',
-        color: '#ffff'
+        fontFamily: 'LatoBold',
+        color: '#ffff',
+
     },
     secondText: {
         fontSize: 24,
         lineHeight: 32,
-        fontFamily: 'LatoRegular',
+        fontFamily: 'LatoBold',
         color: '#ffff'
     },
     priceText: {
         fontSize: 20,
         lineHeight: 24,
-        fontFamily: 'LatoRegular',
-        color: '#ffff'
+        fontFamily: 'LatoBold',
+        color: '#ffff',
     },
     image: {
         position: 'absolute',

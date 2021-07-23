@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {ScrollView, StyleSheet} from 'react-native';
+import {ScrollView, StyleSheet, View} from 'react-native';
 import Buttons from './Buttons';
 import Products from './Products';
 import img2 from '../../../assets/image/img2.png'
@@ -77,10 +77,12 @@ export default function Main({navigation}) {
 
     return (
         <ScrollView style={styles.container}>
-            <Header/>
-            <StartFrame/>
-            <Buttons filter={filter} changeFilter={changeFilter}/>
-            <Products text={filterText} products={productsFilter} loadScene={loadScene}/>
+            <View style={styles.box}>
+                <Header/>
+                <StartFrame/>
+                <Buttons filter={filter} changeFilter={changeFilter}/>
+                <Products text={filterText} products={productsFilter} loadScene={loadScene}/>
+            </View>
             <Footer loadScene={loadScene}/>
         </ScrollView>
     );
@@ -88,7 +90,9 @@ export default function Main({navigation}) {
 
 const styles = StyleSheet.create({
     container: {
-        padding: 15,
         backgroundColor: '#ffff'
+    },
+    box: {
+        padding: 15
     }
 });

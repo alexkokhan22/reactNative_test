@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import Navigation from './components/navigation/Navigation';
 import * as Fonts from 'expo-font'
@@ -7,10 +7,13 @@ import AppLoading from "expo-app-loading";
 
 export default function App() {
     const fonts = async () => {
+
         await Fonts.loadAsync({
             'LatoRegular': require('./assets/fonts/Lato-Regular.ttf'),
             'LatoBold': require('./assets/fonts/Lato-Bold.ttf')
         })
+
+
     }
     const [font, setFont] = useState(false)
     if (font) {
